@@ -19,7 +19,7 @@ class TwittersController < ApplicationController
   end
 
   def show
-    @twitter = Twitter.find params[:id]
+
   end
 
   def follows
@@ -50,6 +50,6 @@ class TwittersController < ApplicationController
 
   def record_not_found
     @messages = {error: 'TwitterNotFound'}
-    render status: :conflict, template: 'layouts/errors'
+    render status: :conflict, template: 'errors/show'
   end
 end

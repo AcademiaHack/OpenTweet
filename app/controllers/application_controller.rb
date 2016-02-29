@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
       @current_twitter = @current_user.userable
     else
       @messages = {error: 'SetXTokenHeader'}
-      render status: :conflict, template: 'layouts/errors'
+      render status: :conflict, template: 'errors/show'
     end
   end
 
   private
   def record_not_found
     @messages = {error: 'UserNotFound'}
-    render status: :conflict, template: 'layouts/errors'
+    render status: :conflict, template: 'errors/show'
   end
 end

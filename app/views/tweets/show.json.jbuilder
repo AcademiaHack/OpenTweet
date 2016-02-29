@@ -1,0 +1,2 @@
+json.(@tweet, :text, :twitter)
+

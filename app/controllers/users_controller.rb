@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       }
     else
       @messages = {error: 'InvalidUser'}
-      render status: :conflict, template: 'layouts/errors'
+      render status: :conflict, template: 'errors/show'
     end
   end
 

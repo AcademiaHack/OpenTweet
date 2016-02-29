@@ -4,10 +4,10 @@ class CreateFollows < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_reference :follows, :twitter
+    add_reference :follows, :following
     add_reference :follows, :followed
 
-    add_foreign_key :follows, :twitters, column: :twitter_id
+    add_foreign_key :follows, :twitters, column: :following_id
     add_foreign_key :follows, :twitters, column: :followed_id
   end
 end

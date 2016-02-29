@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by email: payload.first['data']
       @current_twitter = @current_user.userable
     else
-      @messages = ['SetXTokenHeader']
+      @messages = {error: 'SetXTokenHeader'}
       render status: :conflict, template: 'layouts/errors'
     end
   end
 
   private
   def record_not_found
-    @messages = ['UserNotFound']
+    @messages = {error: 'UserNotFound'}
     render status: :conflict, template: 'layouts/errors'
   end
 end

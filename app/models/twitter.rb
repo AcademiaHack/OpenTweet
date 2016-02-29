@@ -7,10 +7,10 @@ class Twitter < ActiveRecord::Base
   has_many :follows, foreign_key: 'followed_id'
   has_many :followings, through: :follows
 
-  has_many :reverse_follows, foreign_key: 'twitter_id', class_name:"Follow"
+  has_many :reverse_follows, foreign_key: 'following_id', class_name: 'Follow'
   has_many :followers, through: :reverse_follows, source: :followed
 
-  has_many :twits
+  has_many :tweets
 
 
 end

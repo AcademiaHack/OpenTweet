@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'twitters/:id/follows' => 'twitters#follows'
   delete 'twitters/:id/follows' => 'twitters#follows'
 
-  resources :twits
+  resources :tweets
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

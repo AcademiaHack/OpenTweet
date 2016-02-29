@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         twitter: user.userable
       }
     else
-      @messages = ['InvalidUser']
+      @messages = {error: 'InvalidUser'}
       render status: :conflict, template: 'layouts/errors'
     end
   end

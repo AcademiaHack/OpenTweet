@@ -23,7 +23,12 @@ class TwittersController < ApplicationController
   end
 
   def follows
-    @current_twitter.followings.push(@twitter)
+    begin
+      @current_twitter.followings.push(@twitter)
+    rescue
+      @messages = {error: 'AlreadyFollowing'}
+      render status: :conflict, template: 'errors/show'
+    end
   end
 
   def unfollows
@@ -44,7 +49,7 @@ class TwittersController < ApplicationController
   end
 
   def record_not_found
-    @messages = ['TwitterNotFound']
+    @messages = {error: 'TwitterNotFound'}
     render status: :conflict, template: 'layouts/errors'
   end
 end
